@@ -17,7 +17,8 @@ public class Arma {
 
 	@Override
 	public String toString() {
-		return "Arma= " + nombre + ", Daño= " + puntosDaño;
+		// Traducido: Weapon y Damage
+		return "Weapon= " + nombre + ", Damage= " + puntosDaño;
 	}
 
 }
