@@ -11,54 +11,50 @@ public class Principal {
 		Aventurero aventurero1 = new Aventurero("Conan", 10);
 		Aventurero aventurero2 = new Aventurero("Gandfalf", 20);
 
-		System.out.println("El numero total de aventureros es: " + Aventurero.getContadorIds());
+		System.out.println("The total number of adventurers is: " + Aventurero.getContadorIds());
 
 		int option = 0;
 		int seleccionAventurero = 0;
 
 		do {
 
-			System.out.println("---- Menu Juego ----");
-			System.out.println("1. Equipar arma");
-			System.out.println("2. Atacar");
-			System.out.println("3. Ver estado");
-			System.out.println("4. Salir");
+			System.out.println("---- Game Menu ----");
+			System.out.println("1. Equip weapon");
+			System.out.println("2. Attack");
+			System.out.println("3. View status");
+			System.out.println("4. Exit");
 
-			option = Integer.parseInt(scanner.nextLine()); // preguntamos al usuario por el nuevo valor de option
+			option = Integer.parseInt(scanner.nextLine()); // Ask the user for the new option value
 
 			switch (option) {
-			// El usuario elige un aventurero, se piden datos del arma, crea objeto Arma y
-			// lo asigna al aventurero
+			// The user chooses an adventurer, weapon data is requested, an Arma object is created 
+			// and assigned to the adventurer
 			case 1:
 
 				seleccionAventurero = seleccionarAventurero();
 
-				
-				//scanner.nextLine(); // Limpio el buffer IMPORTANTE
+				System.out.println("Please provide the following information: ");
 
-				System.out.println("Seleccione la siguiente información: ");
-
-				System.out.println("Introduzca nombre del arma: ");
+				System.out.println("Enter weapon name: ");
 				String arma = scanner.nextLine();
 
-				System.out.println("Introduzca daño del arma: ");
+				System.out.println("Enter weapon damage: ");
 				int dañoArma = scanner.nextInt();
-				scanner.nextLine(); // Limpio el buffer IMPORTANTE
+				scanner.nextLine(); // Clear the buffer IMPORTANT
 
-				Arma nuevaArma = new Arma(arma, dañoArma); // Creamos una nueva arma con la informacion que
-															// nos da
-															// el usuario
+				Arma nuevaArma = new Arma(arma, dañoArma); // Create a new weapon with the info 
+															// provided by the user
 				
 				if (seleccionAventurero == 1) {
-					aventurero1.equiparArma(nuevaArma); // Asignamos al Aventurero 1
+					aventurero1.equiparArma(nuevaArma); // Assign to Adventurer 1
 
 				} else {
-					aventurero2.equiparArma(nuevaArma); // Asignamos al Aventurero 2
+					aventurero2.equiparArma(nuevaArma); // Assign to Adventurer 2
 				}
 
 				break;
 
-			// El usuario elige aventurero se ejecuta atacar
+			// The user chooses an adventurer and the attack is executed
 			case 2:
 
 				seleccionAventurero = seleccionarAventurero();
@@ -70,30 +66,25 @@ public class Principal {
 					aventurero2.atacar();
 					
 				}
-				
-				//scanner.nextLine(); // Limpio el buffer IMPORTANTE
 				break;
 
-			// Muestra la informacion toString de los aventureros
+			// Shows the toString information of the adventurers
 			case 3:
 
 				seleccionAventurero = seleccionarAventurero();
 
 				if (seleccionAventurero == 1) {
-
 					System.out.println(aventurero1.toString());
-					//scanner.nextLine(); // Limpio el buffer IMPORTANTE
 				} else {
 					System.out.println(aventurero2.toString());
-					//scanner.nextLine(); // Limpio el buffer IMPORTANTE
 				}
 
 				break;
 
-			// Salir
+			// Exit
 			case 4:
 
-				System.out.println("Muchas gracias por utilizar esta aplicacion.");
+				System.out.println("Thank you for using this application.");
 
 				break;
 
@@ -101,7 +92,7 @@ public class Principal {
 				break;
 			}
 
-		} while (option != 4); // Se repite hasta que no pulse 4 (Salir)
+		} while (option != 4); // Repeats until 4 (Exit) is pressed
 
 	}
 
@@ -112,24 +103,21 @@ public class Principal {
 		do {
 			try {
 
-				System.out.println("Elige un aventurero:");
-				System.out.println("1. Primer aventurero: Conan");
-				System.out.println("2. Segundo aventurero: Gandfalf");
+				System.out.println("Choose an adventurer:");
+				System.out.println("1. First adventurer: Conan");
+				System.out.println("2. Second adventurer: Gandfalf");
 				
-				//Utilizamos esta opcion para no tener problemas con el buffer 
+				// We use this option to avoid buffer issues
 				eleccionUsuario = Integer.parseInt(scanner.nextLine()); 
-				//eleccionUsuario = scanner.nextInt();
 
 				if (eleccionUsuario == 1 || eleccionUsuario == 2) {
-					System.out.println("Perfecto, primer aventurero seleccionado con exito");
+					System.out.println("Perfect, adventurer selected successfully");
 				} else {
-					System.out.println("Seleccione un numero valido (1 o 2)");
+					System.out.println("Please select a valid number (1 or 2)");
 				}
-				
-				//scanner.nextLine();
 
-			} catch (java.lang.NumberFormatException e) { // Para manejar el error de letras
-				System.out.println("Introduce un número valido");
+			} catch (java.lang.NumberFormatException e) { // To handle letter input errors
+				System.out.println("Please enter a valid number");
 				
 			}
 
