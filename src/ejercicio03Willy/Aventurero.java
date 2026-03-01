@@ -11,7 +11,7 @@ public class Aventurero {
 
 	public Aventurero(String nombre, int nivel) {
 
-		this.id = contadorIds++; // Asigna un ID automaticamente
+		this.id = contadorIds++; // Automatically assigns an ID
 		this.nombre = nombre;
 		this.nivel = nivel;
 		this.arma = null;
@@ -26,9 +26,9 @@ public class Aventurero {
 
 	public void atacar() {
 		if (arma == null) {
-			System.out.println("El aventurero " + nombre + " ataca con los puños. Daño: 1");
+			System.out.println("The adventurer " + nombre + " attacks with their fists. Damage: 1");
 		} else {
-			System.out.println("El aventurero " + nombre + " " + arma.toString());
+			System.out.println("The adventurer " + nombre + " " + arma.toString());
 		}
 	}
 
@@ -37,7 +37,7 @@ public class Aventurero {
 		this.arma = nuevaArma;
 		
 		if (arma == null) {
-			System.out.println("Se ha asignado correctamente el arma al Aventurero " + nombre);
+			System.out.println("The weapon has been successfully assigned to Adventurer " + nombre);
 		} else {
 			System.out.println(toString());
 		}
@@ -49,7 +49,7 @@ public class Aventurero {
 
 	@Override
 	public String toString() {
-		return "Aventurero [id=" + id + ", Nombre=" + nombre + ", Nivel=" + nivel + ", " + arma + "]";
+		return "Adventurer [id=" + id + ", Name=" + nombre + ", Level=" + nivel + ", " + arma + "]";
 	}
 
 }
